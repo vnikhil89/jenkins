@@ -43,4 +43,20 @@ resource "oci_core_instance" "web-01" {
    metadata = {
      ssh_authorized_keys = var.ssh_public_key
    }
+  connection {
+    type = "ssh"
+	    user = "opc"
+      private_key = "${file("/Users/niks/.ssh/id_rsa")}"
+	    host = oci_core_instance.web-01.public_ip
+  }
+  provisioner "file" {
+    source = "jenkins.sh"
+    destination = "/tmp/jenkins.sh"
+  }
+  provisioner "remote-exec"{
+    inline=[
+      "chmod +x /tmp/jenkins.sh",
+      "sudo /tmp/jenkins.sh"
+      ]
+  }
 }
