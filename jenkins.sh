@@ -10,5 +10,7 @@ sudo systemctl start jenkins && systemctl enable jenkins
 sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
 sudo firewall-cmd --reload
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sudo echo -e "kubeadmin\nkubeadmin" | passwd opc >/dev/null 2>&1 
 
 
