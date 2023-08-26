@@ -13,7 +13,5 @@ variable "private_subnet_dns_label" {}
 variable "image_operating_system" {}
 variable "image_operating_system_version" {}
 variable "instance_shape" {}
-variable "vmnames" {
-    type        = list(string)
-}
+variable "vmnames" {}
 variable "ssh_public_key" {}
