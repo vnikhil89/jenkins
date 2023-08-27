@@ -20,7 +20,7 @@ data "oci_core_images" "compute_images"{
 
 data "oci_core_subnets" "public_subnet" {
   compartment_id = var.compartment_ocid
-  display_name = var.public_subnet_dns_label
+  display_name = var.private_subnet_dns_label
 }
 
 resource "oci_core_instance" "web-01" {
