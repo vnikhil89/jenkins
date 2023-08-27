@@ -46,8 +46,8 @@ resource "oci_core_instance" "web-01" {
   connection {
     type = "ssh"
 	    user = "opc"
-      private_key = "${file("/Users/niks/.ssh/id_rsa")}"
-	    host = oci_core_instance.web-01.public_ip
+      private_key = "${file("~/.ssh/id_rsa")}"
+	    host = oci_core_instance.web-01.private_ip
   }
   provisioner "file" {
     source = "jenkins.sh"
