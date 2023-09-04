@@ -10,6 +10,9 @@ sudo systemctl start jenkins && systemctl enable jenkins
 sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
 sudo firewall-cmd --reload
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+sudo dnf install -y git
+sudo git config --global user.name "Nikhil Verma"
+sudo git config --global user.email n.nikhilverma89@gmail.com
 sudo sed -i 's/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
